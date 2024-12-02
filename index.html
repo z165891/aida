@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+        function carregar() {            
+            window.alert("la pagina ha carregat")
+        }
+        function comprovar() {
+            window.alert("comprovar");
+            lletra=document.getElementById("coeficientA").value;
+            if ((lletra>="a") && (lletra<="m")) {
+                window.alert("correcto");
+            }
+        if (vides <=0){
+            window.alert("i has perdut");
+            AturaTot();
+        }
+        }
+        </script>
+    </head>
+    <body>
+       <h1>Prototip Joc del Penjat</h1>
+    <input type="text" id="coeficientA" required>Escriu una lletra minuscula<br>    
+       <button type="submit" onclick="comprovar();">Comprovar</button>
+       <h2>Paraula</h2> 
+       <p>-------</p>
+       <h2> Vides </h2> 
+       <p>_</p>
+      <h2> Lletres</h2> 
+      <p>------</p>
+       
+       credits:<a href="https://prosselloe.wordpress.com/2022/11/22/el-joc-del-penjat-on-scratch/">El joc del penjat Scratch</a>
+    </body>
+    
+</html>
