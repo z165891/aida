@@ -9,30 +9,69 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
+             // Variables Globals.
+        var Paraula = ""; 
+        var Lletres = "";
+        var Vides = 7;
+        
         function carregar() {            
             window.alert("la pagina ha carregat")
         }
+        
         function comprovar() {
             window.alert("comprovar");
-            lletra=document.getElementById("coeficientA").value;
+            lletra=document.getElementById("lletra").value;
+            switch (lletra) {
+                case "á":
+                case "à":
+                    lletra = "a";
+                    break;
+                case "é":
+                case "è":
+                    lletra = "e";
+                    break;
+                case "í":
+                case "ï":
+                    lletra = "i";
+                    break;
+                case "ó":
+                case "ò":
+                    lletra = "o";
+                    break;
+                case "ú":
+                case "ü":
+                    lletra = "u";
+                    break;
+            }
             if ((lletra>="a") && (lletra<="m")) {
                 window.alert("correcto");
+                Paraula = Paraula + lletra;
+                document.getElementById("paraula").innerHTML = Paraula;
+            } else {
+                window.alert("incorrecto");
+                Vides = Vides - 1;
+                document.getElementById("vidas").innerHTML = Vides;
             }
-        if (vides <=0){
-            window.alert("i has perdut");
-            AturaTot();
+            if (Vides <=0){
+                window.alert("i has perdut");
+                AturaTot();
+            }
         }
-        }
-        </script>
+        
+        function AturaTot() {
+            document.getElementById("comprovar").disabled=true;
+            document.getElementById("lletra").disabled=true;
+        } 
+     </script>
     </head>
     <body>
        <h1>Prototip Joc del Penjat</h1>
-    <input type="text" id="coeficientA" required>Escriu una lletra minuscula<br>    
-       <button type="submit" onclick="comprovar();">Comprovar</button>
+    <input type="text" id="lletra" required>Escriu una lletra minuscula<br>    
+       <button type="submit" id="comprovar" onclick="comprovar();">Comprovar</button>
        <h2>Paraula</h2> 
-       <p>-------</p>
+       <p id="paraula">-------</p>
        <h2> Vides </h2> 
-       <p>_</p>
+       <p id="vidas">7</p>
       <h2> Lletres</h2> 
       <p>------</p>
        
