@@ -8,90 +8,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
-             // Variables Globals.
-        var Paraula = ""; 
-        var Lletres = "";
-        var Vides = 7;
-        
-        function carregar() {            
-            window.alert("la pagina ha carregat")
-        }
-        
-        function comprovar() {
-            window.alert("comprovar");
-            lletra=document.getElementById("lletra").value;
-            switch (lletra) {
-                case "á":
-                case "à":
-                    lletra = "a";
-                    break;
-                case "é":
-                case "è":
-                    lletra = "e";
-                    break;
-                case "í":
-                case "ï":
-                    lletra = "i";
-                    break;
-                case "ó":
-                case "ò":
-                    lletra = "o";
-                    break;
-                case "ú":
-                case "ü":
-                    lletra = "u";
-                    break;
-            }
-            if ((lletra>="a") && (lletra<="m")) {
-                window.alert("correcto");
-                Paraula = Paraula + lletra;
-                document.getElementById("paraula").innerHTML = Paraula;
-            } else {
-                window.alert("incorrecto");
-                Vides = Vides - 1;
-                document.getElementById("vidas").innerHTML = Vides;
-            }
-            if (Vides <=0){
-                window.alert("i has perdut");
-                AturaTot();
-            }
-            if (Paraula.length >=7){
-                window.alert("i has guanyat");
-                AturaTot();
-            }
-        }
-        
-        function AturaTot() {
-            document.getElementById("comprovar").disabled=true;
-            document.getElementById("lletra").disabled=true;
-        }
-        
-        function carregar() {
-            document.getElementById("ahorcado_0").hidden=true;
-
-        }
-     </script>
     </head>
-    <body onload="carregar()">
-       <h1>Prototip Joc del Penjat</h1>
-    <input type="text" id="lletra" required>Escriu una lletra minuscula<br>    
-       <button type="submit" id="comprovar" onclick="comprovar();">Comprovar</button>
-       <h2>Paraula</h2> 
-       <p id="paraula">-------</p>
-       <h2> Vides </h2> 
-       <p id="vidas">7</p>
-      <h2> Lletres</h2> 
-      <p>------</p>
-       
-       credits:<a href="https://prosselloe.wordpress.com/2022/11/22/el-joc-del-penjat-on-scratch/">El joc del penjat Scratch</a>
-        <img src="img/ahorcado_0.png" alt="" width="300" height="295" onclick="alert('Gracias por pinchar');"/>
-        <img src="img/ahorcado_1.png" alt="" width="300" height="295" onclick="alert('Has pinchado con el ratón');"/>
-        <img src="img/ahorcado_2.png" alt="" width="300" height="295" onmouseover="alert('Acabas de pasar el ratón por encima');">/>
-        <img src="img/ahorcado_3.png" alt="" width="300" height="295" onload="alert('La página se ha cargado completamente');"/>
-        <img src="img/ahorcado_4.png" alt="" width="300" height="295" style="width:150px; height:60px; border:thin solid silver"/>
-        <img src="img/ahorcado_5.png" alt="" width="300" height="295" id="coeficientA"> />
-        <img src="img/ahorcado_6.png" alt="" width="300" height="295" onclick="calcularSolucio();">Calcular</>
-
-   </body>  
+    <body>
+        <a href="prototip.html">prototip</a><br>
+        <a href="versioalfa.html">versioalfa</a><br>
+        <a href="versiobeta.html">versiobeta</a><br>
+    </body>
 </html>
