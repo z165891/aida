@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+             // Variables Globals.
+        var Paraula = ""; 
+        var Lletres = "";
+        var Vides = 7;
+        
+        function carregar() {            
+            window.alert("la pagina ha carregat")
+        }
+        
+        function comprovar() {
+            window.alert("comprovar");
+            lletra=document.getElementById("lletra").value;
+            switch (lletra) {
+                case "á":
+                case "à":
+                    lletra = "a";
+                    break;
+                case "é":
+                case "è":
+                    lletra = "e";
+                    break;
+                case "í":
+                case "ï":
+                    lletra = "i";
+                    break;
+                case "ó":
+                case "ò":
+                    lletra = "o";
+                    break;
+                case "ú":
+                case "ü":
+                    lletra = "u";
+                    break;
+            }
+            if ((lletra>="a") && (lletra<="m")) {
+                window.alert("correcto");
+                Paraula = Paraula + lletra;
+                document.getElementById("paraula").innerHTML = Paraula;
+                document.getElementById("miau").play();
+            } else {
+                window.alert("incorrecto");
+                Vides = Vides - 1;
+                document.getElementById("vidas").innerHTML = Vides;
+                document.getElementById("boom_cloud").play();
+                MostraImg();
+            }
+            if (Vides <=0){
+                window.alert("i has perdut");
+                document.getElementById("cat-flight").play();
+                AturaTot();
+            }
+            if (Paraula.length >=7){
+                window.alert("i has guanyat");
+                  document.getElementById("cheer").play();
+                AturaTot();
+            }
+        }
+        
+        function AturaTot() {
+            document.getElementById("comprovar").disabled=true;
+            document.getElementById("lletra").disabled=true;
+        } 
+        
+        function AmagaImg(){
+            document.getElementById("ahorcado_6").hidden=true;
+            document.getElementById("ahorcado_5").hidden=true;
+            document.getElementById("ahorcado_4").hidden=true;
+            document.getElementById("ahorcado_3").hidden=true;
+            document.getElementById("ahorcado_2").hidden=true;
+            document.getElementById("ahorcado_1").hidden=true;
+            document.getElementById("ahorcado_0").hidden=true;   
+            if (!confirm('Anam a la quinta forca?'))
+            document.body.style.backgroundImage="url('img/fondo1.png')";
+        }
+        
+        function MostraImg(){
+            switch (Vides) {
+                case 6:
+                    document.getElementById("ahorcado_6").hidden=false;
+                    break;
+                case 5:
+                    document.getElementById("ahorcado_5").hidden=false; 
+                    document.getElementById("ahorcado_6").hidden=true;
+                    break;
+                case 4:
+                    document.getElementById("ahorcado_4").hidden=false;
+                    document.getElementById("ahorcado_5").hidden=true;
+                    break;
+                case 3:
+                     document.getElementById("ahorcado_3").hidden=false;
+                     document.getElementById("ahorcado_4").hidden=true;
+                    break;
+                case 2:
+                     document.getElementById("ahorcado_2").hidden=false;
+                     document.getElementById("ahorcado_3").hidden=true;
+                    break;
+                case 1:
+                     document.getElementById("ahorcado_1").hidden=false;
+                      document.getElementById("ahorcado_2").hidden=true;
+                    break;
+                case 0:
+                     document.getElementById("ahorcado_0").hidden=false;
+                     document.getElementById("ahorcado_1").hidden=true;
+                    break;
+                       break;
+            }
+        }
+     </script>
+    </head>
+    <body onload="AmagaImg()" style="background-image: url('img/Desert.png'); 
+          background-size: 640px 480px; background-repeat: no-repeat;">
+       <h1>Prototip Joc del Penjat</h1>
+    <input type="text" id="lletra" required>Escriu una lletra minuscula<br>    
+       <button type="submit" id="comprovar" onclick="comprovar();">Comprovar</button>
+       <h2>Paraula</h2> 
+       <p id="paraula">-------</p>
+       <h2> Vides </h2> 
+       <p id="vidas">7</p>
+      <h2> Lletres</h2> 
+      <p>------</p>
+       
+       credits:<a href="https://prosselloe.wordpress.com/2022/11/22/el-joc-del-penjat-on-scratch/">El joc del penjat Scratch</a>
+       <img src="img/disfraz1.png" alt="" style="width:86px;height:90px;"/>
+       <div id="imatges">
+       <img src="img/ahorcado_0.png" id="ahorcado_0" alt="" width="300" height="295" />
+       <img src="img/ahorcado_1.png" id="ahorcado_1" alt="" width="300" height="295" />
+       <img src="img/ahorcado_2.png" id="ahorcado_2" alt="" width="300" height="295" />
+       <img src="img/ahorcado_3.png" id="ahorcado_3" alt="" width="300" height="295" />
+       <img src="img/ahorcado_4.png" id="ahorcado_4" alt="" width="300" height="295" />
+       <img src="img/ahorcado_5.png" id="ahorcado_5" alt="" width="300" height="295" />
+       <img src="img/ahorcado_6.png" id="ahorcado_6" alt="" width="300" height="295" />           
+       </div> 
+       <div id="audio">
+           <audio id="miau"><source src="aud/miau.mp3" type="audio/mpeg"></audio>
+           <audio id="boom_cloud"><source src="aud/boom_cloud.mp3" type="audio/mpeg"></audio>
+           <audio id="cat-fight"><source src="aud/cat-fight.mp3" type="audio/mpeg"></audio>
+           <audio id="bell_toll"><source src="aud/bell_toll_x3.mp3" type="audio/mpeg"></audio>
+           <audio id="mystery"><source src="aud/mystery.mp3" type="audio/mpeg"></audio> 
+           <audio id="cheer"><source src="aud/cheer.mp3" type="audio/mpeg"></audio> 
+           <audio id="clock_ticking"><source src="aud/clock_ticking.mp3" type="audio/mpeg"></audio> 
+        </div>      
+        <table>
+          <tr>
+            <td>
+                <br>
+                <strong translate="no">URLpistes: 
+                    <a href="https://pccd.dites.cat/p/A_la_quinta_forca" target="_blank"
+                       title="A la quinta forca, ">Dita 1</a>
+                    <a href="https://pccd.dites.cat/p/A_ca_un_penjat%2C_no_hi_anomenis_cordes" target="_blank"
+                       title="A ca un penjat, no hi anomenis cordes, ">Dita 2</a>
+                    <a href="https://pccd.dites.cat/p/Setze_jutges_d%27un_jutjat_mengen_fetge_d%27un_penjat" target="_blank"
+                       title="Setze jutges d'un jutjat mengen fetge d'un penjat, ...">Dita 3</a>
+                </strong>
+                <p><strong>Crèdits: 
+                    <a href="https://prosselloe.wordpress.com/?p=5862" target="_blank" translate="no">
+                        Joc Penjat on Scratch</a>
+                </strong></p>
+            </td>          
+            <td>
+                <br>
+                <strong>YouTube: 
+                    <a href="https://youtu.be/v53rEMHghJU?list=PLv1JHCp6B60w_KnMTu7jDdlDZ6Z0-WJ-j" target="_blank" translate="no">
+                        Joc Penjat on Scratch</a>
+                </strong>
+                <p><strong translate="no">Wikis: 
+                    <a href="https://ca.wikipedia.org/wiki/Penjat" target="_blank"
+                       title="Regles del joc">Penjat</a>
+                    <a href="https://es.wikipedia.org/wiki/Ahorcado_(juego)" target="_blank"
+                       title="Reglas del juego">Ahorcado</a>
+                    <a href="https://en.wikipedia.org/wiki/Hangman_(game)" target="_blank"
+                       title="Game rules">Hangman</a>
+                </strong></p>
+            </td>          
+          </tr>
+        </table>
+        <div id="Idioma" translate="no">
+            <button id="ca" style="height: 20px; width: 28px" onclick="CanviarIdioma('ca')">
+                <img src="img/ca.png" alt="tra_ca" title="en Català"></button>
+            <button id="es" style="height: 20px; width: 28px" onclick="CanviarIdioma('es')">
+                <img src="img/es.png" alt="tra_es" title="en Español"></button>
+            <!--
+            <a href="https://penjat-github.netlify.app/index.html" 
+               id="ca"> <img src="img/ca.png" alt="tra_ca" title="en Català"></a>
+            <a href="https://penjat--github-netlify-app.translate.goog/index.html?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es" 
+               id="es"> <img src="img/es.png" alt="tra_es" title="en Español"></a>
+            -->
+            <a href='https://penjat--github-netlify-app.translate.goog/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en' id='en'> <img id="gb" src="img/gb.png" alt="tra_en" title="in English"></a>
+            <!--
+            <label for="Idiomes">Select:</label>
+            -->
+            <select name="Idiomes" id="Idiomes" onchange="CanviarIdioma(this.value)" title="Select">
+                <option value="en">en</option>
+                <option value="fr">fr</option>
+                <option value="de">de</option>
+                <option value="it">it</option>
+                <option value="es">es</option>
+                <option value="ca">ca</option>
+            </select>
+            <a href="https://dlc.iec.cat/" target="_blank">
+                <img src="img/ca.png" alt="dic_ca" title="Diccionari"></a>
+            <a href="https://dle.rae.es/" target="_blank">
+                <img src="img/es.png" alt="dic_es" title="Diccionario"></a>
+            <a href="https://www.wordreference.com/definition/" target="_blank">
+                <img src="img/gb.png" alt="dic_en" title="Dictionary"></a>
+            &nbsp;
+            <button id="teclat" onclick="document.getElementById('Teclat').hidden = 
+                                        !document.getElementById('Teclat').hidden;" title="Mostra o Amaga">
+                <img src="img/keyboard.png" alt="teclat"></button>
+        </div>
+        <div id="Guia">
+            <img src="img/disfraz3.png" id="disfraz3" style="width:86px;height:90px;" 
+                 title="Hola, soc en Pep Gonella i seré
+          el teu Moix Guia, perquè 
+          els cans no tenen set vides!">
+            <img src="img/disfraz2.png" id="disfraz2" style="width:86px;height:90px;" title="Has encertat!">
+            <img src="img/disfraz1.png" id="disfraz1" style="width:86px;height:90px;" title="Has fallat!">
+        </div>
+        <div0 id="Caminar">
+            <img src="img/caminar.gif" id="caminar" style="width:86px;height:90px;" title="i has guanyat!">
+        </div>
+        <div id="Rotar">
+            <img src="img/rotar.gif" id="rotar" style="width:86px;height:90px;" title="i has perdut!">
+        </div>
+        <div id="Segons" style="color: blue;">0</div> 
+</html>
+                   
+                           

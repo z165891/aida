@@ -65,10 +65,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         function AturaTot() {
             document.getElementById("comprovar").disabled=true;
             document.getElementById("lletra").disabled=true;
-        } 
+        }
+        
+        function carregar() {
+            document.getElementById("ahorcado_0").hidden=true;
+
+        }
      </script>
     </head>
-    <body>
+    <body onload="carregar()">
        <h1>Prototip Joc del Penjat</h1>
     <input type="text" id="lletra" required>Escriu una lletra minuscula<br>    
        <button type="submit" id="comprovar" onclick="comprovar();">Comprovar</button>
@@ -80,6 +85,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
       <p>------</p>
        
        credits:<a href="https://prosselloe.wordpress.com/2022/11/22/el-joc-del-penjat-on-scratch/">El joc del penjat Scratch</a>
-    </body>
-    
+        <img src="img/ahorcado_0.png" alt="" width="300" height="295" onclick="alert('Gracias por pinchar');"/>
+        <img src="img/ahorcado_1.png" alt="" width="300" height="295" onclick="alert('Has pinchado con el ratón');"/>
+        <img src="img/ahorcado_2.png" alt="" width="300" height="295" onmouseover="alert('Acabas de pasar el ratón por encima');">/>
+        <img src="img/ahorcado_3.png" alt="" width="300" height="295" onload="alert('La página se ha cargado completamente');"/>
+        <img src="img/ahorcado_4.png" alt="" width="300" height="295" style="width:150px; height:60px; border:thin solid silver"/>
+        <img src="img/ahorcado_5.png" alt="" width="300" height="295" id="coeficientA"> />
+        <img src="img/ahorcado_6.png" alt="" width="300" height="295" onclick="calcularSolucio();">Calcular</>
+
+   </body>  
 </html>
